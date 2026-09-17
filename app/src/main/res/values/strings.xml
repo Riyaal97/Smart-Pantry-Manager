@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Smart Pantry Manager</string>
+    <!--  Nav / titles  -->
+    <string name="title_pantry">My Pantry</string>
+    <string name="title_add_edit">Add / Edit Ingredient</string>
+    <string name="title_suggested">Suggested Recipes</string>
+    <string name="title_almost_there">Almost There</string>
+    <string name="title_recipe_detail">Recipe Detail</string>
+    <string name="title_settings">Settings</string>
+    <!--  Empty states  -->
+    <string name="empty_pantry">Your pantry is empty. Tap + to add an ingredient.</string>
+    <string name="empty_suggestions">No recipes match your pantry yet — add more ingredients.</string>
+    <string name="empty_almost_there">Nothing is close yet — add a few more ingredients.</string>
+</resources>

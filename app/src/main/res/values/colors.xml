@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--  Sun-kissed yellow palette  -->
+    <color name="sun_yellow">#FFC947</color>
+    <color name="sun_yellow_dark">#F2A900</color>
+    <color name="amber_accent">#FF8F00</color>
+    <!--  Backgrounds & surfaces  -->
+    <color name="cream_background">#FFFBEF</color>
+    <color name="surface_white">#FFFFFF</color>
+    <!--  Text  -->
+    <color name="text_primary">#3E2C14</color>
+    <color name="text_secondary">#7A6A50</color>
+    <!--  Status colors  -->
+    <color name="success_green">#4CAF50</color>
+    <color name="warning_orange">#FF8F00</color>
+    <color name="error_red">#D32F2F</color>
+    <!--  Basics  -->
+    <color name="white">#FFFFFF</color>
+    <color name="black">#000000</color>
+</resources>
