@@ -6,7 +6,8 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <!--  More activities (AddEditIngredientActivity, SuggestedRecipesActivity,
-                     RecipeDetailActivity, SettingsActivity) will be added here in later steps  -->
+        <activity android:name=".AddEditIngredientActivity" android:exported="false"/>
+        <!--  More activities (SuggestedRecipesActivity, RecipeDetailActivity,
+                     SettingsActivity) will be added here in later steps  -->
     </application>
 </manifest>

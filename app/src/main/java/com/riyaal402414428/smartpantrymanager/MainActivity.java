@@ -1,5 +1,6 @@
 package com.riyaal402414428.smartpantrymanager;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -21,8 +22,7 @@ import java.util.List;
 /**
  * Hosts the Pantry List screen (Section 2.2 of the brief). Shows all pantry
  * items live from Firestore in a RecyclerView, lets the user delete items
- * directly, and will route to the Add/Edit screen (Step 5) via the FAB and
- * the edit button.
+ * directly, and routes to AddEditIngredientActivity for adding/editing.
  */
 public class MainActivity extends AppCompatActivity implements PantryAdapter.OnPantryActionListener {
 
@@ -47,7 +47,7 @@ public class MainActivity extends AppCompatActivity implements PantryAdapter.OnP
 
         FloatingActionButton fabAddItem = findViewById(R.id.fabAddItem);
         fabAddItem.setOnClickListener(v ->
-                Toast.makeText(this, "Add Ingredient screen coming in Step 5", Toast.LENGTH_SHORT).show());
+                startActivity(new Intent(this, AddEditIngredientActivity.class)));
 
         listenToPantryItems();
     }
@@ -78,7 +78,15 @@ public class MainActivity extends AppCompatActivity implements PantryAdapter.OnP
 
     @Override
     public void onEditClicked(PantryItem item) {
-        Toast.makeText(this, "Edit screen for \"" + item.getName() + "\" coming in Step 5", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, AddEditIngredientActivity.class);
+        intent.putExtra(AddEditIngredientActivity.EXTRA_ITEM_ID, item.getId());
+        intent.putExtra(AddEditIngredientActivity.EXTRA_ITEM_NAME, item.getName());
+        intent.putExtra(AddEditIngredientActivity.EXTRA_ITEM_QUANTITY, item.getQuantity());
+        intent.putExtra(AddEditIngredientActivity.EXTRA_ITEM_UNIT, item.getUnit());
+        if (item.getExpiryDate() != null) {
+            intent.putExtra(AddEditIngredientActivity.EXTRA_ITEM_EXPIRY, item.getExpiryDate());
+        }
+        startActivity(intent);
     }
 
     @Override
