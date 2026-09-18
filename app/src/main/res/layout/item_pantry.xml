@@ -1,0 +1,8 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android" xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:background="@color/surface_white" android:padding="12dp" android:layout_marginBottom="4dp" android:gravity="center_vertical">
+    <LinearLayout android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:orientation="vertical">
+        <TextView android:id="@+id/textName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@color/text_primary" android:textSize="16sp" android:textStyle="bold" tools:text="Tomatoes"/>
+        <TextView android:id="@+id/textQuantity" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@color/text_secondary" android:textSize="14sp" tools:text="3 pieces"/>
+    </LinearLayout>
+    <ImageButton android:id="@+id/buttonEdit" android:layout_width="40dp" android:layout_height="40dp" android:background="?attr/selectableItemBackgroundBorderless" android:src="@android:drawable/ic_menu_edit" android:contentDescription="Edit ingredient"/>
+    <ImageButton android:id="@+id/buttonDelete" android:layout_width="40dp" android:layout_height="40dp" android:layout_marginStart="4dp" android:background="?attr/selectableItemBackgroundBorderless" android:src="@android:drawable/ic_menu_delete" android:contentDescription="Delete ingredient"/>
+</LinearLayout>
