@@ -1,0 +1,13 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/cream_background">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="24dp">
+        <TextView android:id="@+id/textScreenTitle" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/title_add_edit" android:textColor="@color/text_primary" android:textSize="22sp" android:textStyle="bold" android:layout_marginBottom="24dp"/>
+        <EditText android:id="@+id/editName" android:layout_width="match_parent" android:layout_height="wrap_content" android:hint="Ingredient name (e.g. Tomatoes)" android:inputType="textCapWords" android:background="@color/surface_white" android:padding="12dp"/>
+        <TextView android:id="@+id/errorName" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@color/error_red" android:textSize="12sp" android:visibility="gone" android:text="Please enter an ingredient name"/>
+        <EditText android:id="@+id/editQuantity" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:hint="Quantity (e.g. 3)" android:inputType="numberDecimal" android:background="@color/surface_white" android:padding="12dp"/>
+        <TextView android:id="@+id/errorQuantity" android:layout_width="wrap_content" android:layout_height="wrap_content" android:textColor="@color/error_red" android:textSize="12sp" android:visibility="gone" android:text="Please enter a quantity greater than 0"/>
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:text="Unit" android:textColor="@color/text_secondary" android:textSize="12sp"/>
+        <Spinner android:id="@+id/spinnerUnit" android:layout_width="match_parent" android:layout_height="wrap_content" android:background="@color/surface_white" android:padding="12dp"/>
+        <EditText android:id="@+id/editExpiry" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="16dp" android:hint="Expiry date (optional)" android:focusable="false" android:clickable="true" android:background="@color/surface_white" android:padding="12dp"/>
+        <Button android:id="@+id/buttonSave" android:layout_width="match_parent" android:layout_height="wrap_content" android:layout_marginTop="24dp" android:text="Save" android:backgroundTint="@color/amber_accent" android:textColor="@color/white"/>
+    </LinearLayout>
+</ScrollView>
