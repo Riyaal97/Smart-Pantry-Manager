@@ -3,6 +3,7 @@ package com.riyaal402414428.smartpantrymanager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,7 +23,8 @@ import java.util.List;
 /**
  * Hosts the Pantry List screen (Section 2.2 of the brief). Shows all pantry
  * items live from Firestore in a RecyclerView, lets the user delete items
- * directly, and routes to AddEditIngredientActivity for adding/editing.
+ * directly, routes to AddEditIngredientActivity for adding/editing, and to
+ * SuggestedRecipesActivity to see what can be cooked right now.
  */
 public class MainActivity extends AppCompatActivity implements PantryAdapter.OnPantryActionListener {
 
@@ -48,6 +50,10 @@ public class MainActivity extends AppCompatActivity implements PantryAdapter.OnP
         FloatingActionButton fabAddItem = findViewById(R.id.fabAddItem);
         fabAddItem.setOnClickListener(v ->
                 startActivity(new Intent(this, AddEditIngredientActivity.class)));
+
+        Button buttonViewSuggested = findViewById(R.id.buttonViewSuggested);
+        buttonViewSuggested.setOnClickListener(v ->
+                startActivity(new Intent(this, SuggestedRecipesActivity.class)));
 
         listenToPantryItems();
     }
