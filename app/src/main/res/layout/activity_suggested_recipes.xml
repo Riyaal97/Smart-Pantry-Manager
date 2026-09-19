@@ -1,0 +1,10 @@
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/cream_background">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/title_suggested" android:textColor="@color/text_primary" android:textSize="22sp" android:textStyle="bold" android:padding="16dp" android:background="@color/sun_yellow"/>
+        <TextView android:id="@+id/textSuggestedEmpty" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/empty_suggestions" android:textColor="@color/text_secondary" android:textSize="14sp" android:padding="16dp" android:visibility="gone"/>
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/recyclerSuggested" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="8dp" android:nestedScrollingEnabled="false"/>
+        <TextView android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/title_almost_there" android:textColor="@color/text_primary" android:textSize="18sp" android:textStyle="bold" android:padding="16dp" android:layout_marginTop="12dp" android:background="@color/amber_accent"/>
+        <TextView android:id="@+id/textAlmostThereEmpty" android:layout_width="match_parent" android:layout_height="wrap_content" android:text="@string/empty_almost_there" android:textColor="@color/text_secondary" android:textSize="14sp" android:padding="16dp" android:visibility="gone"/>
+        <androidx.recyclerview.widget.RecyclerView android:id="@+id/recyclerAlmostThere" android:layout_width="match_parent" android:layout_height="wrap_content" android:padding="8dp" android:nestedScrollingEnabled="false"/>
+    </LinearLayout>
+</androidx.core.widget.NestedScrollView>
