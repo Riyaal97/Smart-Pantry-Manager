@@ -47,7 +47,7 @@ public class SuggestedRecipesActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         textSuggestedEmpty = findViewById(R.id.textSuggestedEmpty);
         textAlmostThereEmpty = findViewById(R.id.textAlmostThereEmpty);
-
+        findViewById(R.id.buttonBack).setOnClickListener(v -> finish());
         RecyclerView recyclerSuggested = findViewById(R.id.recyclerSuggested);
         recyclerSuggested.setLayoutManager(new LinearLayoutManager(this));
         suggestedAdapter = new RecipeAdapter(

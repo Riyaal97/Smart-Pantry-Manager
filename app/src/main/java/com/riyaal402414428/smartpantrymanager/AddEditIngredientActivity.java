@@ -3,6 +3,7 @@ package com.riyaal402414428.smartpantrymanager;
 import android.app.DatePickerDialog;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -58,6 +59,7 @@ public class AddEditIngredientActivity extends AppCompatActivity {
 
         db = FirebaseFirestore.getInstance();
 
+
         editName = findViewById(R.id.editName);
         editQuantity = findViewById(R.id.editQuantity);
         spinnerUnit = findViewById(R.id.spinnerUnit);
@@ -66,6 +68,7 @@ public class AddEditIngredientActivity extends AppCompatActivity {
         errorQuantity = findViewById(R.id.errorQuantity);
         Button buttonSave = findViewById(R.id.buttonSave);
         TextView title = findViewById(R.id.textScreenTitle);
+        findViewById(R.id.buttonBack).setOnClickListener(v -> finish());
 
         ArrayAdapter<String> unitAdapter = new ArrayAdapter<>(
                 this, android.R.layout.simple_spinner_dropdown_item, UNITS);
