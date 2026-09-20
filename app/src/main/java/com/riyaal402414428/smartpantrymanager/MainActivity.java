@@ -3,7 +3,6 @@ package com.riyaal402414428.smartpantrymanager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -11,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.riyaal402414428.smartpantrymanager.adapter.PantryAdapter;
@@ -23,8 +23,8 @@ import java.util.List;
 /**
  * Hosts the Pantry List screen (Section 2.2 of the brief). Shows all pantry
  * items live from Firestore in a RecyclerView, lets the user delete items
- * directly, routes to AddEditIngredientActivity for adding/editing, and to
- * SuggestedRecipesActivity to see what can be cooked right now.
+ * directly, and provides the app's main navigation element (Section 3.1)
+ * via a BottomNavigationView linking to Pantry, Recipes, and Settings.
  */
 public class MainActivity extends AppCompatActivity implements PantryAdapter.OnPantryActionListener {
 
@@ -51,14 +51,39 @@ public class MainActivity extends AppCompatActivity implements PantryAdapter.OnP
         fabAddItem.setOnClickListener(v ->
                 startActivity(new Intent(this, AddEditIngredientActivity.class)));
 
-        Button buttonViewSuggested = findViewById(R.id.buttonViewSuggested);
-        buttonViewSuggested.setOnClickListener(v ->
-                startActivity(new Intent(this, SuggestedRecipesActivity.class)));
-
-        findViewById(R.id.buttonSettings).setOnClickListener(v ->
-                startActivity(new Intent(this, SettingsActivity.class)));
-
+        setupBottomNavigation();
         listenToPantryItems();
+    }
+
+    /**
+     * Wires the app's main navigation element (Section 3.1 requirement).
+     * "Pantry" is this screen itself, so it does nothing when tapped.
+     * "Recipes" and "Settings" launch their existing screens via Intent,
+     * then the nav bar's selection is reset back to Pantry immediately -
+     * since those are separate Activities, not fragments swapped in place,
+     * this avoids the nav bar looking "stuck" on the wrong tab if the user
+     * presses Back to return here.
+     */
+    private void setupBottomNavigation() {
+        BottomNavigationView bottomNav = findViewById(R.id.bottomNavigation);
+        bottomNav.setSelectedItemId(R.id.nav_pantry);
+
+        bottomNav.setOnItemSelectedListener(item -> {
+            int id = item.getItemId();
+
+            if (id == R.id.nav_pantry) {
+                return true;
+            } else if (id == R.id.nav_recipes) {
+                startActivity(new Intent(this, SuggestedRecipesActivity.class));
+                bottomNav.post(() -> bottomNav.setSelectedItemId(R.id.nav_pantry));
+                return true;
+            } else if (id == R.id.nav_settings) {
+                startActivity(new Intent(this, SettingsActivity.class));
+                bottomNav.post(() -> bottomNav.setSelectedItemId(R.id.nav_pantry));
+                return true;
+            }
+            return false;
+        });
     }
 
     /**
