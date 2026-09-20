@@ -55,6 +55,9 @@ public class MainActivity extends AppCompatActivity implements PantryAdapter.OnP
         buttonViewSuggested.setOnClickListener(v ->
                 startActivity(new Intent(this, SuggestedRecipesActivity.class)));
 
+        findViewById(R.id.buttonSettings).setOnClickListener(v ->
+                startActivity(new Intent(this, SettingsActivity.class)));
+
         listenToPantryItems();
     }
 
