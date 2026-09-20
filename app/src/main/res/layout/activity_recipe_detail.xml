@@ -1,0 +1,14 @@
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent" android:layout_height="match_parent" android:background="@color/cream_background">
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="horizontal" android:background="@color/sun_yellow" android:gravity="center_vertical" android:paddingStart="4dp" android:paddingEnd="16dp">
+            <TextView android:id="@+id/buttonBack" android:layout_width="48dp" android:layout_height="48dp" android:gravity="center" android:text="←" android:textSize="24sp" android:textColor="@color/text_primary" android:textStyle="bold" android:background="?attr/selectableItemBackgroundBorderless" android:clickable="true" android:focusable="true" android:contentDescription="Back"/>
+            <TextView android:id="@+id/textRecipeName" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:text="@string/title_recipe_detail" android:textColor="@color/text_primary" android:textSize="20sp" android:textStyle="bold" android:paddingVertical="16dp"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:padding="20dp">
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Ingredients" android:textColor="@color/text_primary" android:textSize="18sp" android:textStyle="bold"/>
+            <LinearLayout android:id="@+id/containerIngredients" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="8dp" android:layout_marginBottom="24dp"/>
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="Method" android:textColor="@color/text_primary" android:textSize="18sp" android:textStyle="bold"/>
+            <LinearLayout android:id="@+id/containerSteps" android:layout_width="match_parent" android:layout_height="wrap_content" android:orientation="vertical" android:layout_marginTop="8dp"/>
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

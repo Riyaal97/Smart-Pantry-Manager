@@ -47,7 +47,9 @@ public class SuggestedRecipesActivity extends AppCompatActivity {
         db = FirebaseFirestore.getInstance();
         textSuggestedEmpty = findViewById(R.id.textSuggestedEmpty);
         textAlmostThereEmpty = findViewById(R.id.textAlmostThereEmpty);
+
         findViewById(R.id.buttonBack).setOnClickListener(v -> finish());
+
         RecyclerView recyclerSuggested = findViewById(R.id.recyclerSuggested);
         recyclerSuggested.setLayoutManager(new LinearLayoutManager(this));
         suggestedAdapter = new RecipeAdapter(
@@ -116,7 +118,8 @@ public class SuggestedRecipesActivity extends AppCompatActivity {
     }
 
     private void openRecipeDetail(Recipe recipe) {
-        Toast.makeText(this, "Recipe Detail screen for \"" + recipe.getName() + "\" coming in Step 7",
-                Toast.LENGTH_SHORT).show();
+        android.content.Intent intent = new android.content.Intent(this, RecipeDetailActivity.class);
+        intent.putExtra(RecipeDetailActivity.EXTRA_RECIPE_ID, recipe.getId());
+        startActivity(intent);
     }
 }
